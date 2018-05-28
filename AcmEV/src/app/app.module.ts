@@ -4,19 +4,22 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { HomePage } from '../pages/degree/home';
+import { ListPage } from '../pages/department/list';
+import { DisplayDepartmentPage } from '../pages/display-department/display-department';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { DegreeService } from '../providers/degree-service/degree-service';
-
+import { DegreeServiceProvider } from '../providers/degree-service/degree-service';
+import { DepartmentServiceProvider } from '../providers/department-service/department-service';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    DisplayDepartmentPage
   ],
   imports: [
     BrowserModule,
@@ -27,14 +30,16 @@ import { DegreeService } from '../providers/degree-service/degree-service';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    DisplayDepartmentPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DegreeService,
-
+    DegreeServiceProvider,
+    DepartmentServiceProvider
   ]
 })
 export class AppModule {}

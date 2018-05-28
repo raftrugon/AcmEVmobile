@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="appPrimary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>AcmEV</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Degrees</h3>
+  <ion-list>
+      <ion-item *ngFor="let degree of degrees">
+        <h2>{{ degree.name }}</h2>
+
+      </ion-item>
+    </ion-list>
+</ion-content>
